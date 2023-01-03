@@ -1,0 +1,199 @@
+<!doctype html>
+<html>
+<head>
+<title>HyperReel: High-Fidelity 6-DoF Video with Ray-Conditioned Sampling</title>
+<link href="resources/style.css" rel="stylesheet"/>
+<script src="resources/handlers.js"></script>
+<script>
+window.onload = function() {
+  teaser_sparse_handler = new VideoHandler(1, 2, "teaser_sparse_data", "teaser_sparse_btn", "teaser_sparse_vid");
+  teaser_sparse_handler.register();
+  try {
+    teaser_sparse_handler.play_video();
+  } catch (e) {
+  }
+
+  teaser_dense_handler = new VideoHandler(1, 4, "teaser_dense_data", "teaser_dense_btn", "teaser_dense_vid");
+  teaser_dense_handler.register();
+  try {
+    teaser_dense_handler.play_video();
+  } catch (e) {
+  }
+};
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CQVT3LMJLZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-CQVT3LMJLZ');
+</script>
+</head>
+<body>
+<h1 class="center">HyperReel: High-Fidelity 6-DoF Video with Ray-Conditioned Sampling</h1>
+<div class="authors">
+  <div>
+    <p><a href="https://www.battal.me/">Benjamin Attal</a></p>
+    <p>Carnegie Mellon University</p>
+  </div>
+  <div>
+    <p><a href="https://jbhuang0604.github.io/">Jia-Bin Huang</a></p>
+    <p>Meta</p>
+  </div>
+  <div>
+    <p><a href="https://richardt.name/">Christian Richardt</a></p>
+    <p>Reality Labs Research</p>
+  </div>
+  <div>
+    <p><a href="https://zollhoefer.com/">Michael Zollh&ouml;fer</a></p>
+    <p>Reality Labs Research</p>
+  </div>
+  <div>
+    <p><a href="https://johanneskopf.de/">Johannes Kopf</a></p>
+    <p>Meta</p>
+  </div>
+  <div>
+    <p><a href="https://www.cs.cmu.edu/~motoole2/">Matthew O'Toole</a></p>
+    <p>Carnegie Mellon University</p>
+  </div>
+  <div>
+    <p><a href="https://changilkim.com/">Changil Kim</a></p>
+    <p>Meta</p>
+  </div>
+</div>
+
+<!-- links -->
+<div class="links">
+  <a href="https://arxiv.org/abs/2112.01523"><span><img src="resources/file-earmark-pdf-fill.svg"/> Paper (arXiv)</span></a>
+  <a href="results.html"><span><img src="resources/file-earmark-code-fill.svg"/> Supplemental Results</span></a>
+  <a href="#teaser-video"><span><img src="resources/youtube.svg" style="height: 1.2em; vertical-align: -15%;"/> Teaser Video</span></a>
+  <a href="https://github.com/facebookresearch/hyperreel"><span><img src="resources/github.svg"/> Code</span></a>
+</div>
+
+<div class="flex" style="justify-content: space-around; margin-bottom: -2.8em;">
+  <video controls muted loop autoplay style="width: 410px; height: 307px; display: block;">
+    <source src="videos/immersive_flames_0.mov" type="video/mp4"/>
+  </video>
+  <video controls muted loop autoplay style="width: 410px; height: 307px; display: block;">
+    <source src="videos/immersive_horse_50.mov" type="video/mp4"/>
+  </video>
+</div>
+<div class="flex" style="justify-content: space-around; margin-bottom: 0em;">
+  <video controls muted loop autoplay style="width: 410px; height: 307px; display: block;">
+    <source src="videos/ours_cd.mov" type="video/mp4"/>
+  </video>
+  <video controls muted loop autoplay style="width: 410px; height: 307px; display: block;">
+    <source src="videos/ours_lab.mov" type="video/mp4"/>
+  </video>
+</div>
+
+<h2>Overview</h2>
+<div class="justify">
+  <p>
+    We present <em>HyperReel</em>, a novel representation for 6-Degree-of-Freedom Video which achieves a combination of high rendering quality, speed, and compactness that sets it apart from existing methods.
+    The two core components of HyperReel are:
+
+    <ol>
+        <li>A ray-conditioned sampling network architecture that both <em>accelerates</em> volume rendering and <em>improves</em> rendering quality.</li>
+        <br>
+        <img src="figures/pipeline.png" style="display: block; width: 100%; margin-left: auto; margin-right: auto;"/>
+        <br>
+        <li>A compact and memory efficient keyframe-based dynamic volume representation.</li>
+        <br>
+        <img src="figures/dynamic.png" style="display: block; width: 70%; margin-left: auto; margin-right: auto;"/>
+        <br>
+    </ol>
+
+    Our architecture both outperforms other sampling network based approaches for static view synthesis and achieves the best performance compared to both <em>prior and contemporary</em> 6DoF video approaches in terms of quality with small memory requirements, while also rendering at up to 18 frames-per-second at megapixel resolution without any custom CUDA code.
+  </p>
+</div>
+
+<!--
+<div style="text-align: center;">
+  <div class="flex" style="justify-content: space-between; align-items: center; margin-top: 2em;">
+    <img src="figures/web_teaser.svg" style="display: block; width: 65%; margin-left:"/>
+    <img src="figures/teaser_graph.svg" style="display: block; width: 34%; margin-left:"/>
+  </div>
+  <p>We present <em>Neural Light Fields with Ray-Space Embedding</em>, which map rays directly to integrated radiance.</p>
+</div>
+-->
+
+<!--
+<div class="flex" style="justify-content: space-between; align-items: center; margin-top: 2em;">
+  <img src="figures/teaser_illustration.svg" style="width: 29%;"/>
+  <img src="figures/teaser_visual.svg" style="width: 40%;"/>
+  <img src="figures/teaser_graph.svg" style="width: 29%;"/>
+</div>
+<p class="justify">We present <em>Neural Light Fields with Ray-Space Embedding</em>, which map rays directly to integrated radiance (<em>left</em>). Our representation allows for high-quality view synthesis with faithful reconstruction of complex view dependence (<em>middle</em>). We are able to synthesize novel views in a fraction of the time required for the current state-of-the-art approaches, with comparable memory footprint. Our method achieves a more favorable trade-off between quality, speed, and memory than existing approaches for both dense and sparse light fields (<em>right</em>).</p>
+-->
+
+<h2>Real-Time Demos</h2>
+<div class="justify">
+<p>We show real-time demos of our approach at 512x512 pixel resolution applied to both dynamic and highly-view-dependent static scenes below.</a>
+</div>
+
+<!-- teaser close-ups -->
+<div class="flex" style="justify-content: space-around; margin-bottom: 0em;">
+  <video controls muted loop autoplay style="width: 410px; height: 230px; display: block;">
+    <source src="videos/technicolor_1.mov" type="video/mp4"/>
+  </video>
+  <video controls muted loop autoplay style="width: 410px; height: 230px; display: block;">
+    <source src="videos/technicolor_2.mov" type="video/mp4"/>
+  </video>
+</div>
+<div class="flex" style="justify-content: space-around; margin-bottom: 0em;">
+  <video controls muted loop autoplay style="width: 410px; height: 230px; display: block;">
+    <source src="videos/immersive_2.mov" type="video/mp4"/>
+  </video>
+  <video controls muted loop autoplay style="width: 410px; height: 230px; display: block;">
+    <source src="videos/immersive_1.mov" type="video/mp4"/>
+  </video>
+</div>
+<div class="flex" style="justify-content: space-around; margin-bottom: 0em;">
+  <video controls muted loop autoplay style="width: 410px; height: 230px; display: block;">
+    <source src="videos/shiny_1.mov" type="video/mp4"/>
+  </video>
+  <video controls muted loop autoplay style="width: 410px; height: 230px; display: block;">
+    <source src="videos/shiny_2.mov" type="video/mp4"/>
+  </video>
+</div>
+<div class="flex" style="justify-content: space-around; margin-bottom: 0em;">
+  <video controls muted loop autoplay style="width: 410px; height: 230px; display: block;">
+    <source src="videos/stanford_1.mov" type="video/mp4"/>
+  </video>
+  <video controls muted loop autoplay style="width: 410px; height: 230px; display: block;">
+    <source src="videos/stanford_2.mov" type="video/mp4"/>
+  </video>
+</div>
+<div class="flex" style="justify-content: space-around; margin-bottom: 0em;">
+  <video controls muted loop autoplay style="width: 410px; height: 230px; display: block;">
+    <source src="videos/donerf_1.mov" type="video/mp4"/>
+  </video>
+  <video controls muted loop autoplay style="width: 410px; height: 230px; display: block;">
+    <source src="videos/donerf_2.mov" type="video/mp4"/>
+  </video>
+</div>
+
+
+
+<h2>Abstract</h2>
+<p class="justify">Volumetric scene representations enable realistic view synthesis for static scenes and form the basis of several existing 6-DoF video techniques. However, the powerful volume rendering procedures that drive these representations necessitate careful trade-offs in terms of quality, rendering speed, and memory efficiency. In particular, existing methods fail to simultaneously achieve real-time performance, small memory footprint and high-quality rendering for challenging real-world scenes. To address these issues, we propose a novel 6-DoF video representation called HyperReel. The two core components of HyperReel are: (1) a ray-conditioned sampling network that enables high-fidelity high-framerate rendering at high resolutions, and (2) a compact and memory-efficient dynamic volume representation. To validate the efficacy of our approach, we show that our architecture outperforms other sampling network based approaches for static view synthesis. We further show that our full 6-DoF video pipeline achieves the best performance compared to <em>both prior and contemporary</em> approaches in terms of quality with small memory requirements, while also rendering at up to 18 frames-per-second at megapixel resolution without any custom CUDA code.</p>
+
+<h2 id="teaser-video">Teaser Video</h2>
+<div style="margin-left: auto; margin-right: auto; text-align: center;">
+  <video controls muted loop autoplay style="width: auto; height: auto; display: inline-block;">
+    <source src="videos/teaser.mp4" type="video/mp4"/>
+  </video>
+</div>
+
+<h2>BibTeX</h2>
+<pre><code>@article{attal2022hyperreel,
+  author    = {Attal, Benjamin and Huang, Jia-Bin and Richardt, Christian and Zollhoefer, Michael and Kopf, Johannes and O'Tooe, Matthew and Kim, Changil},
+  title     = {HyperReel: High-Fidelity 6-DoF Video with Ray-Conditioned Sampling},
+  journal={arXiv preprint arXiv:2112.01523},
+  year      = {2022},
+}</code></pre>
+
+</body>
+</html>
+

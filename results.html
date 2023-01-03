@@ -1,0 +1,419 @@
+<!doctype html>
+<html>
+<head>
+<title>HyperReel | Supplemental Results</title>
+<link href="resources/style.css" rel="stylesheet"/>
+<script src="resources/handlers.js"></script>
+<script>
+window.onload = function() {
+  vidcmp_demo_handler = new VideoHandler(5, 2, "vidcmp_demo_data", "vidcmp_demo_btn", "vidcmp_demo_vid");
+  vidcmp_demo_handler.register();
+  try {
+    vidcmp_demo_handler.play_video();
+  } catch (e) {
+  }
+
+  imgcmp_immersive_handler = new ImageHandler(8, 2, "imgcmp_immersive_data", "imgcmp_immersive_btn", "imgcmp_immersive_img");
+  imgcmp_immersive_handler.register();
+
+  imgcmp_shiny_handler = new ImageHandler(2, 5, "imgcmp_shiny_data", "imgcmp_shiny_btn", "imgcmp_shiny_img");
+  imgcmp_shiny_handler.register();
+
+  vidcmp_shiny_handler = new VideoHandler(1, 4, "vidcmp_shiny_data", "vidcmp_shiny_btn", "vidcmp_shiny_vid");
+  vidcmp_shiny_handler.register();
+  try {
+    vidcmp_shiny_handler.play_video();
+  } catch (e) {
+  }
+
+  vidcmp_dyn_technicolor_handler = new VideoHandler(1, 5, "vidcmp_dyn_technicolor_data", "vidcmp_dyn_technicolor_btn", "vidcmp_dyn_technicolor_vid");
+  vidcmp_dyn_technicolor_handler.register();
+  try {
+    vidcmp_dyn_technicolor_handler.play_video();
+  } catch (e) {
+  }
+
+  vidcmp_dyn_n3d_handler = new VideoHandler(1, 6, "vidcmp_dyn_n3d_data", "vidcmp_dyn_n3d_btn", "vidcmp_dyn_n3d_vid");
+  vidcmp_dyn_n3d_handler.register();
+  try {
+    vidcmp_dyn_n3d_handler.play_video();
+  } catch (e) {
+  }
+
+  vidcmp_dyn_immersive_handler = new VideoHandler(1, 8, "vidcmp_dyn_immersive_data", "vidcmp_dyn_immersive_btn", "vidcmp_dyn_immersive_vid");
+  vidcmp_dyn_immersive_handler.register();
+  try {
+    vidcmp_dyn_immersive_handler.play_video();
+  } catch (e) {
+  }
+};
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CQVT3LMJLZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-CQVT3LMJLZ');
+</script>
+</head>
+<body class="results">
+
+<a href="index.html"><h1 id="top" class="center">HyperReel: High-Fidelity 6-DoF Video with Ray-Conditioned Sampling</h1></a>
+<h2 class="center">Supplemental Results</h2>
+<div class="authors">
+  <div>
+    <p><a href="https://www.battal.me/">Benjamin Attal</a></p>
+    <p>Carnegie Mellon University</p>
+  </div>
+  <div>
+    <p><a href="https://jbhuang0604.github.io/">Jia-Bin Huang</a></p>
+    <p>Meta</p>
+  </div>
+  <div>
+    <p><a href="https://richardt.name/">Christian Richardt</a></p>
+    <p>Reality Labs Research</p>
+  </div>
+  <div>
+    <p><a href="https://zollhoefer.com/">Michael Zollh&ouml;fer</a></p>
+    <p>Reality Labs Research</p>
+  </div>
+  <div>
+    <p><a href="https://johanneskopf.de/">Johannes Kopf</a></p>
+    <p>Meta</p>
+  </div>
+  <div>
+    <p><a href="https://www.cs.cmu.edu/~motoole2/">Matthew O'Toole</a></p>
+    <p>Carnegie Mellon University</p>
+  </div>
+  <div>
+    <p><a href="https://changilkim.com/">Changil Kim</a></p>
+    <p>Meta</p>
+  </div>
+</div>
+
+<!-- links -->
+<div class="links">
+  <a href="https://arxiv.org/abs/2112.01523"><span><img src="resources/file-earmark-pdf-fill.svg"/> Paper (arXiv)</span></a>
+  <a href="results.html"><span><img src="resources/file-earmark-code-fill.svg"/> Supplemental Results</span></a>
+  <a href="index.html#teaser-video"><span><img src="resources/youtube.svg" style="height: 1.2em; vertical-align: -20%;"/> Teaser Video</span></a>
+  <a href="https://github.com/facebookresearch/hyperreel"><span><img src="resources/github.svg"/> Code</span></a>
+</div>
+
+<h2>Table of Contents</h2>
+<div>
+  <ul>
+    <li><a href="#vidcmp_demo">Real-Time Demo</a>
+    </li>
+    <li>Dynamic Dataset Results
+      <ul>
+        <li><a href="#vidcmp_dyn_technicolor">Technicolor</a></li>
+        <li><a href="#vidcmp_dyn_n3d">Neural 3D</a></li>
+        <li><a href="#vidcmp_dyn_immersive">Google Immersive</a></li>
+      </ul>
+    </li>
+    <!--
+    <li>Static Dataset Results
+      <ul>
+        <li><a href="#imgcmp_sparse">DoNeRF</a></li>
+      </ul>
+    </li>-->
+    <li>View Dependent Results
+      <ul>
+        <li><a href="#vidcmp_shiny">Videos</a></li>
+        <li><a href="#imgcmp_shiny">Images</a></li>
+      </ul>
+    </li>
+    <li><a href="#imgcmp_immersive">Google Immersive Qualitative Comparisons</a>
+    </li>
+  </ul>
+</div>
+<h2 id="vidcmp_demo">
+  Real-Time Demos
+  <span><a href="#top">&uarr;</a></span>
+</h2>
+<div class="flex">
+  <div>
+    <div class="flex">
+      <div>
+        <button id="vidcmp_demo_data0" value="technicolor" class="on">Technicolor</button>
+        <button id="vidcmp_demo_data1" value="immersive">Immersive</button>
+        <button id="vidcmp_demo_data2" value="shiny">Shiny</button>
+        <button id="vidcmp_demo_data3" value="stanford">Stanford</button>
+        <button id="vidcmp_demo_data4" value="donerf">DoNeRF</button>
+      </div>
+      <div class="wider_buttons">
+        <button id="vidcmp_demo_btn0" value="1" class="on">Scene 1</button>
+        <button id="vidcmp_demo_btn1" value="2">Scene 2</button>
+      </div>
+    </div>
+    <div class="desc">
+      <p>We show our real-time demo applied to a several scenes at 512x512 pixel resolution.</p>
+      <p><b>Datasets.</b> We use 2 scenes from each of: Technicolor, Google Immersive, Shiny, Stanford, and DoNeRF</p>
+      <p><b>Details.</b> We use our <b>Small</b> model for the Technicolor and Shiny scenes, so that the frame-rate for rendering is >40 FPS, <b>demonstrating that we can achieve very high visual quality at high-frame rate, even without custom CUDA code</b>. For the remaining datasets, we use our full model, which still provides real-time inference.</p>
+    </div>
+  </div>
+  <div>
+    <video id="vidcmp_demo_vid0" controls loop class="on">
+      <source src="videos/technicolor_1.mov" type="video/mp4"/>
+    </video>
+    <video id="vidcmp_demo_vid1" controls loop>
+      <source src="videos/technicolor_2.mov" type="video/mp4"/>
+    </video>
+  </div>
+</div>
+
+
+<h2 id="vidcmp_dyn_technicolor">
+  Technicolor Results
+  <span><a href="#top">&uarr;</a></span>
+</h2>
+<div class="flex">
+  <div>
+    <div class="flex">
+      <div>
+        <button id="vidcmp_dyn_technicolor_data0" value="signet" class="on">Free View Synthesis</button>
+      </div>
+      <div class="wider_buttons">
+        <button id="vidcmp_dyn_technicolor_btn0" value="painter" class="on">Birthday</button>
+        <button id="vidcmp_dyn_technicolor_btn1" value="fabien">Fabien</button>
+        <button id="vidcmp_dyn_technicolor_btn2" value="painter">Painter</button>
+        <button id="vidcmp_dyn_technicolor_btn3" value="theater">Theater</button>
+        <button id="vidcmp_dyn_technicolor_btn4" value="trains">Trains</button>
+      </div>
+    </div>
+    <div class="desc">
+      <p>We show free view synthesis results on all scenes from the Technicolor dataset.</p>
+    </div>
+  </div>
+  <div>
+    <video id="vidcmp_dyn_technicolor_vid0" controls loop class="on">
+      <source src="videos/signet_birthday.mov" type="video/mp4"/>
+    </video>
+    <video id="vidcmp_dyn_technicolor_vid1" controls loop class="fabien">
+      <source src="videos/signet_fabien.mov" type="video/mp4"/>
+    </video>
+    <video id="vidcmp_dyn_technicolor_vid2" controls loop>
+      <source src="videos/signet_painter.mov" type="video/mp4"/>
+    </video>
+    <video id="vidcmp_dyn_technicolor_vid3" controls loop>
+      <source src="videos/signet_theater.mov" type="video/mp4"/>
+    </video>
+    <video id="vidcmp_dyn_technicolor_vid4" controls loop>
+      <source src="videos/signet_trains.mov" type="video/mp4"/>
+    </video>
+  </div>
+</div>
+
+<h2 id="vidcmp_dyn_n3d">
+  Neural 3D Video Results
+  <span><a href="#top">&uarr;</a></span>
+</h2>
+<div class="flex">
+  <div>
+    <div class="flex">
+      <div>
+        <button id="vidcmp_dyn_n3d_data0" value="signet" class="on">Free View Synthesis</button>
+      </div>
+      <div class="wider_buttons">
+        <button id="vidcmp_dyn_n3d_btn0" value="beef" class="on">Cut Roasted Beef</button>
+        <button id="vidcmp_dyn_n3d_btn1" value="flame_steak">Flame Steak</button>
+        <button id="vidcmp_dyn_n3d_btn2" value="sear_steak">Sear Steak</button>
+        <button id="vidcmp_dyn_n3d_btn3" value="cook_spinach">Cook Spinach</button>
+        <button id="vidcmp_dyn_n3d_btn4" value="flame_salmon">Flame Salmon</button>
+        <button id="vidcmp_dyn_n3d_btn5" value="coffee_martini">Coffee Martini</button>
+      </div>
+    </div>
+    <div class="desc">
+      <p>We show free view synthesis results on all scenes from the Neural 3D Video dataset.</p>
+      <p>Note that the attached renderings are from 50 frame video clips of the original full length sequences, due to supplemental space constraints (though all of our quantitative metrics are calculated using the full length videos).</p>
+    </div>
+  </div>
+  <div>
+    <video id="vidcmp_dyn_n3d_vid0" controls loop class="on">
+      <source src="videos/neural_3d_beef_0.mov" type="video/mp4"/>
+    </video>
+    <video id="vidcmp_dyn_n3d_vid1" controls loop>
+      <source src="videos/neural_3d_flame_steak_0.mov" type="video/mp4"/>
+    </video>
+    <video id="vidcmp_dyn_n3d_vid2" controls loop>
+      <source src="videos/neural_3d_sear_steak_0.mov" type="video/mp4"/>
+    </video>
+    <video id="vidcmp_dyn_n3d_vid3" controls loop>
+      <source src="videos/neural_3d_cook_spinach_0.mov" type="video/mp4"/>
+    </video>
+    <video id="vidcmp_dyn_n3d_vid4" controls loop>
+      <source src="videos/neural_3d_flame_salmon_0.mov" type="video/mp4"/>
+    </video>
+    <video id="vidcmp_dyn_n3d_vid5" controls loop>
+      <source src="videos/neural_3d_coffee_martini_0.mov" type="video/mp4"/>
+    </video>
+  </div>
+</div>
+
+<h2 id="vidcmp_dyn_immersive">
+  Google Immersive Results
+  <span><a href="#top">&uarr;</a></span>
+</h2>
+<div class="flex">
+  <div>
+    <div class="flex">
+      <div>
+        <button id="vidcmp_dyn_immersive_data0" value="immersive" class="on">Free View Synthesis</button>
+      </div>
+      <div class="wider_buttons">
+        <button id="vidcmp_dyn_immersive_btn0" value="cave">Cave</button>
+        <button id="vidcmp_dyn_immersive_btn1" value="exhibit">Exhibit</button>
+        <button id="vidcmp_dyn_immersive_btn2" value="face_paint_1">Face Paint 1</button>
+        <button id="vidcmp_dyn_immersive_btn3" value="face_paint_2">Face Paint 2</button>
+        <button id="vidcmp_dyn_immersive_btn4" value="flames">Flames</button>
+        <button id="vidcmp_dyn_immersive_btn5" value="horse", class="on">Horse</button>
+        <button id="vidcmp_dyn_immersive_btn6" value="truck">Truck</button>
+        <button id="vidcmp_dyn_immersive_btn7" value="welder">Welder</button>
+      </div>
+    </div>
+    <div class="desc">
+      <p>We show free view synthesis results on all scenes from the Google Immersive dataset.</p>
+      <p>Note that the attached renderings are from 50 frame video clips of the original full length sequences, due to supplemental space constraints (though all of our quantitative metrics are calculated using the full length videos).</p>
+    </div>
+  </div>
+  <div>
+    <video id="vidcmp_dyn_immersive_vid0" controls loop>
+      <source src="videos/immersive_cave_0.mov" type="video/mp4"/>
+    </video>
+    <video id="vidcmp_dyn_immersive_vid1" controls loop>
+      <source src="videos/immersive_exhibit_0.mov" type="video/mp4"/>
+    </video>
+    <video id="vidcmp_dyn_immersive_vid2" controls loop>
+      <source src="videos/immersive_face_paint_1_0.mov" type="video/mp4"/>
+    </video>
+    <video id="vidcmp_dyn_immersive_vid3" controls loop>
+      <source src="videos/immersive_face_paint_2_0.mov" type="video/mp4"/>
+    </video>
+    <video id="vidcmp_dyn_immersive_vid4" controls loop>
+      <source src="videos/immersive_flames_0.mov" type="video/mp4"/>
+    </video>
+    <video id="vidcmp_dyn_immersive_vid5" controls loop class="on">
+      <source src="videos/immersive_horse_50.mov" type="video/mp4"/>
+    </video>
+    <video id="vidcmp_dyn_immersive_vid6" controls loop>
+      <source src="videos/immersive_truck.mov" type="video/mp4"/>
+    </video>
+    <video id="vidcmp_dyn_immersive_vid7" controls loop>
+      <source src="videos/immersive_welder.mov" type="video/mp4"/>
+    </video>
+  </div>
+</div>
+
+<h2 id="vidcmp_shiny">
+  View Dependent Qualitative Results (Videos)
+  <span><a href="#top">&uarr;</a></span>
+</h2>
+<div class="flex">
+  <div>
+    <div class="flex">
+      <div>
+        <button id="vidcmp_shiny_data0" value="cd" class="on">Free View Synthesis</button>
+      </div>
+      <div class="wider_buttons">
+        <button id="vidcmp_shiny_btn0" value="cd" class="on">CD</button>
+        <button id="vidcmp_shiny_btn1" value="lab">Lab</button>
+        <button id="vidcmp_shiny_btn2" value="tarot_small_1">Tarot (Small)</button>
+        <button id="vidcmp_shiny_btn3" value="tarot_1">Tarot (Large)</button>
+      </div>
+    </div>
+    <div class="desc">
+      <p>We show free view synthesis results on 4 highly view-dependent scenes containing both challenging reflections and refractions.</p>
+      <p><b>Datasets.</b> We use 2 scenes from the Shiny Dataset&mdash;CD and Lab&mdash; and two from the Stanford dataset&mdash;Tarot (Small) and Tarot (Large).</a></p>
+    </div>
+  </div>
+  <div>
+    <video id="vidcmp_shiny_vid0" controls loop class="on">
+      <source src="videos/ours_cd.mov" type="video/mp4"/>
+    </video>
+    <video id="vidcmp_shiny_vid1" controls loop>
+      <source src="videos/ours_lab.mov" type="video/mp4"/>
+    </video>
+    <video id="vidcmp_shiny_vid2" controls loop>
+      <source src="videos/ours_tarot_small_1.mov" type="video/mp4"/>
+    </video>
+    <video id="vidcmp_shiny_vid3" controls loop>
+      <source src="videos/ours_tarot_1.mov" type="video/mp4"/>
+    </video>
+  </div>
+</div>
+
+<h2 id="imgcmp_shiny">
+  View Dependent Qualitative Results (Images)
+  <span><a href="#top">&uarr;</a></span>
+</h2>
+<div class="flex">
+  <div>
+    <div class="flex">
+      <div>
+        <button id="imgcmp_shiny_data0" value="shiny_cd" class="on">CD</button>
+        <button id="imgcmp_shiny_data1" value="shiny_lab">Lab</button>
+      </div>
+      <div class="wider_buttons">
+        <button id="imgcmp_shiny_btn0" value="gt">Ground Truth</button>
+        <button id="imgcmp_shiny_btn1" value="ours" class="on">Our Result</button>
+        <button id="imgcmp_shiny_btn2" value="nerf">NeRF</button>
+        <button id="imgcmp_shiny_btn3" value="nex">NeX</button>
+        <button id="imgcmp_shiny_btn4" value="lnr">LNR</button>
+      </div>
+    </div>
+    <div class="desc">
+      <p>We provide qualitative comparisons to other static view synthesis methods on highly view-dependent scenes.</p>
+      <p><b>Datasets.</b> We use 2 scenes from the Shiny Dataset&mdash;CD and Lab.</a></p>
+      <p><b>Baselines.</b> We better reproduce reflections and refractions than both NeRF and NeX, while performing comparably to Light Field Neural Rendering [Suhail et al. 2022] in terms of quality.</p>
+      <p>Our method can also produce renderings of challenging content at real-time rates (see our demo), while Light Field Neural rendering [Suhail et al. 2022] takes 60 seconds to render an 800x800 image on a V100 GPU.</p>
+    </div>
+  </div>
+  <div>
+    <img id="imgcmp_shiny_img0" src="images/shiny_cd_gt.png" class="shiny_img"/>
+    <img id="imgcmp_shiny_img1" src="images/shiny_cd_ours.png" class="shiny_img on"/>
+    <img id="imgcmp_shiny_img2" src="images/shiny_cd_nerf.png" class="shiny_img"/>
+    <img id="imgcmp_shiny_img3" src="images/shiny_cd_nex.png" class="shiny_img"/>
+    <img id="imgcmp_shiny_img4" src="images/shiny_cd_lnr.png" class="shiny_img"/>
+  </div>
+</div>
+
+
+<h2 id="imgcmp_immersive">
+  Google immersive Qualitative Comparison
+  <span><a href="#top">&uarr;</a></span>
+</h2>
+<div class="flex">
+  <div>
+    <div class="flex">
+      <div>
+        <button id="imgcmp_immersive_data0" value="crop_horse" class="on">Horse</button>
+        <button id="imgcmp_immersive_data1" value="crop_exhibit">Exhibit</button>
+        <button id="imgcmp_immersive_data2" value="crop_welder">Welder</button>
+        <button id="imgcmp_immersive_data3" value="crop_flames">Flames</button>
+        <button id="imgcmp_immersive_data4" value="crop_truck">Truck</button>
+        <button id="imgcmp_immersive_data5" value="crop_face_paint_1">Face Paint 1</button>
+        <button id="imgcmp_immersive_data6" value="crop_face_paint_2">Face Paint 2</button>
+        <button id="imgcmp_immersive_data7" value="crop_cave">Cave</button>
+      </div>
+      <div class="wider_buttons">
+        <button id="imgcmp_immersive_btn0" value="ours" class="on">Our Result</button>
+        <button id="imgcmp_immersive_btn1" value="google">Google Immersive Result</button>
+      </div>
+    </div>
+    <div class="desc">
+      <p>We provide qualitative comparisons to Google Immersive Light Field Video [Broxton et al. 2022].</p>
+      <p>We take screenshots from Google Immersive's high-resolution web-viewer, as there is no easy way to render specific viewpoints.</p>
+      <p>Our method provides comparable visual quality at a lower memory cost, while also training in hours rather than days.</p>
+    </div>
+  </div>
+  <div>
+    <img id="imgcmp_immersive_img0" src="images/crop_horse_ours.png" class="immersive_img on"/>
+    <img id="imgcmp_immersive_img1" src="images/crop_horse_google.png" class="immersive_img"/>
+  </div>
+</div>
+
+</body>
+</html>
+
+
+
