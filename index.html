@@ -5,14 +5,39 @@
 <link href="resources/style.css" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.theme.min.css">
+<style>
+.glide video {
+  width: 600px;
+  height: 450px;
+  display: block;
+  object-fit: cover;
+  border-radius: 15px;
+}
+.glide__arrow {
+  padding: 5px 7px;
+  box-shadow: none;
+  border: none;
+}
+.glide__arrow img {
+  filter: brightness(0%) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(24deg) brightness(100%) contrast(80%) drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
+  height: 2.5em;
+  filter: ;
+}
+.glide__arrow:hover img {
+  filter: brightness(0%) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(24deg) brightness(100%) contrast(100%) drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
+}
+.glide__bullets {
+  bottom: 3.5em;
+}
+</style>
 <script src="resources/handlers.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/glide.min.js"></script>
 <script>
 window.onload = function() {
-  new Glide('.glide', {
-    type: 'carousel',
+  new Glide(".glide", {
+    type: "carousel",
     perView: 1.4,
-    focusAt: 'center'
+    focusAt: "center"
   }).mount();
 };
 </script>
@@ -69,30 +94,84 @@ window.onload = function() {
   <div class="glide__track" data-glide-el="track">
     <ul class="glide__slides">
       <li class="glide__slide">
-        <video controls muted loop autoplay style="width: 600px; height: 450px; display: block;">
+        <video controls muted loop autoplay>
           <source src="videos/immersive_flames_0.mov" type="video/mp4"/>
         </video>
       </li>
       <li class="glide__slide">
-        <video controls muted loop autoplay style="width: 600px; height: 450px; display: block;">
+        <video controls muted loop autoplay>
+          <source src="videos/immersive_welder_0.mov" type="video/mp4"/>
+        </video>
+      </li>
+      <li class="glide__slide">
+        <video controls muted loop autoplay>
           <source src="videos/immersive_horse_50.mov" type="video/mp4"/>
         </video>
       </li>
       <li class="glide__slide">
-        <video controls muted loop autoplay style="width: 600px; height: 450px; display: block;">
+        <video controls muted loop autoplay>
+          <source src="videos/signet_painter.mov" type="video/mp4"/>
+        </video>
+      </li>
+      <li class="glide__slide">
+        <video controls muted loop autoplay>
+          <source src="videos/signet_theater.mov" type="video/mp4"/>
+        </video>
+      </li>
+      <li class="glide__slide">
+        <video controls muted loop autoplay>
+          <source src="videos/signet_trains.mov" type="video/mp4"/>
+        </video>
+      </li>
+      <li class="glide__slide">
+        <video controls muted loop autoplay>
+          <source src="videos/neural_3d_coffee_martini_0.mov" type="video/mp4"/>
+        </video>
+      </li>
+      <li class="glide__slide">
+        <video controls muted loop autoplay>
+          <source src="videos/neural_3d_flame_salmon_0.mov" type="video/mp4"/>
+        </video>
+      </li>
+      <li class="glide__slide">
+        <video controls muted loop autoplay>
+          <source src="videos/neural_3d_beef_0.mov" type="video/mp4"/>
+        </video>
+      </li>
+      <li class="glide__slide">
+        <video controls muted loop autoplay>
+          <source src="videos/ours_tarot_1.mov" type="video/mp4"/>
+        </video>
+      </li>
+      <li class="glide__slide">
+        <video controls muted loop autoplay>
           <source src="videos/ours_cd.mov" type="video/mp4"/>
         </video>
       </li>
       <li class="glide__slide">
-        <video controls muted loop autoplay style="width: 600px; height: 450px; display: block;">
+        <video controls muted loop autoplay>
           <source src="videos/ours_lab.mov" type="video/mp4"/>
         </video>
       </li>
     </ul>
   </div>
   <div class="glide__arrows" data-glide-el="controls">
-    <span class="glide__arrow glide__arrow--left" data-glide-dir="<">&lt;</span>
-    <span class="glide__arrow glide__arrow--right" data-glide-dir=">">&gt;</span>
+    <span class="glide__arrow glide__arrow--left" data-glide-dir="<"><img src="resources/arrow-left-circle-fill.svg"/></span>
+    <span class="glide__arrow glide__arrow--right" data-glide-dir=">"><img src="resources/arrow-right-circle-fill.svg"/></span>
+  </div>
+  <div class="glide__bullets" data-glide-el="controls[nav]">
+    <span class="glide__bullet" data-glide-dir="=0"></span>
+    <span class="glide__bullet" data-glide-dir="=1"></span>
+    <span class="glide__bullet" data-glide-dir="=2"></span>
+    <span class="glide__bullet" data-glide-dir="=3"></span>
+    <span class="glide__bullet" data-glide-dir="=4"></span>
+    <span class="glide__bullet" data-glide-dir="=5"></span>
+    <span class="glide__bullet" data-glide-dir="=6"></span>
+    <span class="glide__bullet" data-glide-dir="=7"></span>
+    <span class="glide__bullet" data-glide-dir="=8"></span>
+    <span class="glide__bullet" data-glide-dir="=9"></span>
+    <span class="glide__bullet" data-glide-dir="=10"></span>
+    <span class="glide__bullet" data-glide-dir="=11"></span>
   </div>
 </div>
 
