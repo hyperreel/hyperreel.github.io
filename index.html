@@ -218,21 +218,44 @@ code.</p>
 <h2>Overview</h2>
 <div class="justify">
   <p>
-    We present <em>HyperReel</em>, a novel representation for 6-Degree-of-Freedom Video which achieves a combination of high rendering quality, speed, and compactness that sets it apart from existing methods.
-    The two core components of HyperReel are:
+    Six-Degrees-of-Freedom (6-DoF) videos allow for free exploration of an environment by giving users the ability to change their head position
+    (3 degrees of freedom) and orientation (3 degrees of freedom). 
+
+    Volumetric scene representations such as neural radiance fields and instant neural graphics primitives have recently made
+    great strides towards photorealistic view synthesis for static scenes.
+
+    While several recent works build dynamic view syntheisis pipelines on top of these volumetric representations,
+    it remains a challenging task to create a 6-DoF video format that can achieve high quality, fast rendering, and a small memory footprint.
+
+    <br>
+    <br>
+
+    We present <em>HyperReel</em>, a novel representation for 6-Degree-of-Freedom Video that achieves state-of-the-art quality
+    while being memory efficient and real-time renderable at high-resolution. The two core components of HyperReel are:
 
     <ol>
-        <li>A ray-conditioned sampling network architecture that both <em>accelerates</em> volume rendering and <em>improves</em> rendering quality.</li>
-        <br>
-        <img src="figures/pipeline.png" style="display: block; width: 100%; margin-left: auto; margin-right: auto;"/>
-        <br>
+        <li>A ray-conditioned sample prediciton network that both <em>accelerates</em> volume rendering and <em>improves</em> rendering quality.</li>
         <li>A compact and memory efficient keyframe-based dynamic volume representation.</li>
-        <br>
-        <img src="figures/dynamic.png" style="display: block; width: 70%; margin-left: auto; margin-right: auto;"/>
-        <br>
     </ol>
 
-    Our architecture both outperforms other sampling network based approaches for static view synthesis and achieves the best performance compared to both <em>prior and contemporary</em> 6DoF video approaches in terms of quality with small memory requirements, while also rendering at up to 18 frames-per-second at megapixel resolution without any custom CUDA code.
+    Our sample prediction architecture, illustrated below, is unique compared to other approaches in that it both <em>accelerates</em> volume rendering and <em>improves</em> rendering quality,</li>
+    especially for challenging view dependent scenes.
+
+    <br>
+    <img src="figures/pipeline.png" style="display: block; width: 100%; margin-left: auto; margin-right: auto;"/>
+    <br>
+
+    The keyframe-based volume representation that we employ is an extension of TensoRF [Chen et al. 2022].
+    It compactly represents a full video sequence, consuming roughly the same amount of memory as a TensoRF for a <em>single static frame</em>.
+
+    <br>
+    <img src="figures/dynamic.png" style="display: block; width: 70%; margin-left: auto; margin-right: auto;"/>
+    <br>
+
+    Additionally, our approach can render at up to 18 FPS at megapixel resolution, the <a href="#demo_videos">demo videos below</a>.
+
+    In summary, HyperReel achieves a balance between high rendering quality, speed, and memory efficiency that sets it apart from existing 6-DoF video representations.
+
   </p>
 </div>
 
@@ -255,7 +278,7 @@ code.</p>
 <p class="justify">We present <em>Neural Light Fields with Ray-Space Embedding</em>, which map rays directly to integrated radiance (<em>left</em>). Our representation allows for high-quality view synthesis with faithful reconstruction of complex view dependence (<em>middle</em>). We are able to synthesize novel views in a fraction of the time required for the current state-of-the-art approaches, with comparable memory footprint. Our method achieves a more favorable trade-off between quality, speed, and memory than existing approaches for both dense and sparse light fields (<em>right</em>).</p>
 -->
 
-<h2>Real-Time Demos</h2>
+<h2 id="demo_videos">Real-Time Demos</h2>
 <div class="justify">
 <p>We show real-time demos of our approach at 512x512 pixel resolution applied to both dynamic and highly-view-dependent static scenes below.</p>
 </div>
