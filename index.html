@@ -12,14 +12,15 @@
 window.onload = function() {
   new Glide("#dynamic-carousel", {
     type: "carousel",
-    perView: 1.4,
+    // perView: 1.4,
+    perView: 1.68,
     focusAt: "center",
     autoplay: 3000,
     hoverpause: true
   }).mount();
   new Glide("#static-carousel", {
     type: "carousel",
-    perView: 1.4,
+    perView: 1.68,
     focusAt: "center",
     autoplay: 3000,
     hoverpause: true
@@ -84,7 +85,10 @@ window.onload = function() {
   <a href="https://github.com/facebookresearch/hyperreel"><span><img src="resources/github.svg"/> Code</span></a>
 </div>
 
+<!--
 <h2>Dynamic Scene Results</h2>
+-->
+
 <div class="glide" id="dynamic-carousel">
   <div class="glide__track" data-glide-el="track">
     <ul class="glide__slides">
@@ -151,8 +155,12 @@ window.onload = function() {
     <span class="glide__bullet" data-glide-dir="=8"></span>
   </div>
 </div>
+<p class="center">Dynamic 6-DoF rendering of scenes from Google Immersive, Technicolor, and Neural 3D Video datasets.</p>
 
+<!--
 <h2>Static Scene Results</h2>
+-->
+
 <div class="glide" id="static-carousel">
   <div class="glide__track" data-glide-el="track">
     <ul class="glide__slides">
@@ -183,9 +191,14 @@ window.onload = function() {
     <span class="glide__bullet" data-glide-dir="=2"></span>
   </div>
 </div>
+<p class="center">Static 6-DoF rendering of highly view-dependent scenes from Shiny and Stanford datasets.</p>
 
+<!--
 <h2>Method Performance</h2>
-<img src="figures/performance.png" style="display: block; width: 100%; margin-left: auto; margin-right: auto;"/>
+-->
+
+<img src="figures/performance.png" style="display: block; width: 70%; margin: 1em auto;"/>
+<p class="center">Speed-quality trade-off of our method compared to the state of the art.</p>
 
 <h2>Abstract</h2>
 <p class="justify">Volumetric scene representations enable photorealistic view synthesis for static scenes and form the basis of several existing 6-DoF video techniques.

@@ -20,9 +20,14 @@
   bottom: 3.5em;
 }
 #dynamic-carousel.glide video, #static-carousel.glide video {
+  /*
   width: 600px;
   height: 450px;
   border-radius: 15px;
+  */
+  width: 500px;
+  height: 375px;
+  border-radius: 12px;
 }
 #realtime-carousel.glide video {
   width: 410px;
