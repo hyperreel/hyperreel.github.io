@@ -95,7 +95,7 @@ window.onload = function() {
       </li>
       <li class="glide__slide">
         <video controls muted loop autoplay>
-          <source src="videos/immersive_welder_0.mov" type="video/mp4"/>
+          <source src="videos/immersive_truck_0.mov" type="video/mp4"/>
         </video>
       </li>
       <li class="glide__slide">
@@ -120,12 +120,12 @@ window.onload = function() {
       </li>
       <li class="glide__slide">
         <video controls muted loop autoplay>
-          <source src="videos/neural_3d_coffee_martini_0.mov" type="video/mp4"/>
+          <source src="videos/neural_3d_sear_steak_0.mov" type="video/mp4"/>
         </video>
       </li>
       <li class="glide__slide">
         <video controls muted loop autoplay>
-          <source src="videos/neural_3d_flame_salmon_0.mov" type="video/mp4"/>
+          <source src="videos/neural_3d_cook_spinach_0.mov" type="video/mp4"/>
         </video>
       </li>
       <li class="glide__slide">
@@ -201,10 +201,7 @@ Our 6-DoF video pipeline achieves the best performance compared to prior and con
 <h2>Overview</h2>
 <div class="justify">
   <p>
-    Six-Degrees-of-Freedom (6-DoF) videos allow for free exploration of an environment by giving users the ability to change their head position
-    (3 degrees of freedom) and orientation (3 degrees of freedom). 
-
-    Volumetric scene representations such as neural radiance fields and instant neural graphics primitives have recently made
+    Volumetric scene representations such as neural radiance fields [Mildenhall et al. 2020] and instant neural graphics primitives [Müller et al. 2022] have recently made
     great strides towards photorealistic view synthesis for static scenes.
 
     While several recent works build dynamic view syntheisis pipelines on top of these volumetric representations,
@@ -221,23 +218,29 @@ Our 6-DoF video pipeline achieves the best performance compared to prior and con
         <li>A compact and memory efficient keyframe-based dynamic volume representation.</li>
     </ol>
 
-    Our sample prediction architecture, illustrated below, is unique compared to other approaches in that it both <em>accelerates</em> volume rendering and <em>improves</em> rendering quality,</li>
+    Our sample prediction network, illustrated below, is unique compared to other approaches in that it
+    both <em>accelerates</em> volume rendering and <em>improves</em> rendering quality,</li>
     especially for challenging view dependent scenes.
 
     <br>
+    <br>
     <img src="figures/pipeline.png" style="display: block; width: 100%; margin-left: auto; margin-right: auto;"/>
+    <br>
     <br>
 
     The keyframe-based volume representation that we employ is an extension of TensoRF [Chen et al. 2022].
     It compactly represents a full video sequence, consuming roughly the same amount of memory as a TensoRF for a <em>single static frame</em>.
 
     <br>
+    <br>
     <img src="figures/dynamic.png" style="display: block; width: 70%; margin-left: auto; margin-right: auto;"/>
     <br>
+    <br>
 
-    Additionally, our approach can render at up to 18 FPS at megapixel resolution, the <a href="#demo_videos">demo videos below</a>.
+    Additionally, our approach can render at up to 18 FPS at megapixel resolution, demonstrated in the <a href="#demo_videos">demo videos below</a>.
 
-    In summary, HyperReel achieves a balance between high rendering quality, speed, and memory efficiency that sets it apart from existing 6-DoF video representations.
+    In summary, HyperReel achieves a balance between high rendering quality, speed, and memory efficiency
+    that sets it apart from existing 6-DoF video representations. 
 
   </p>
 </div>
