@@ -169,6 +169,11 @@ p.btncap {
   font-size: 0.8em;
 }
 
+.shift-to-above {
+  margin-top: 0.75em;
+  margin-bottom: 2em;
+  font-style: italic;
+}
 .center {
   text-align: center;
 }
@@ -310,16 +315,20 @@ div.imgcontainer img {
   /* width: 25ch; */
   margin-top: 10px;
   margin-bottom: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 .authors div p:first-child {
-  font-size: 1.1em;
-  margin-bottom: 0.5em;
+  font-size: 1.05em;
+  margin-bottom: 0.7em;
+  white-space: nowrap;
 }
 
 .authors div p:last-child {
   margin-top: 0.5em;
-  font-size: 0.95em;
+  font-size: 0.85em;
+  line-height: 1.4em;
 }
 
 .justify {
