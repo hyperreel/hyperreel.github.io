@@ -93,6 +93,7 @@ window.onload = function() {
   <a href="https://github.com/facebookresearch/hyperreel"><span><img src="resources/github.svg"/> Code</span></a>
 </div>
 
+<h2 style="text-align: center;">Dynamic Scene Results</h2>
 <div class="glide">
   <div class="glide__track" data-glide-el="track">
     <ul class="glide__slides">
@@ -141,6 +142,29 @@ window.onload = function() {
           <source src="videos/neural_3d_beef_0.mov" type="video/mp4"/>
         </video>
       </li>
+    </ul>
+  </div>
+  <div class="glide__arrows" data-glide-el="controls">
+    <span class="glide__arrow glide__arrow--left" data-glide-dir="<"><img src="resources/arrow-left-circle-fill.svg"/></span>
+    <span class="glide__arrow glide__arrow--right" data-glide-dir=">"><img src="resources/arrow-right-circle-fill.svg"/></span>
+  </div>
+  <div class="glide__bullets" data-glide-el="controls[nav]">
+    <span class="glide__bullet" data-glide-dir="=0"></span>
+    <span class="glide__bullet" data-glide-dir="=1"></span>
+    <span class="glide__bullet" data-glide-dir="=2"></span>
+    <span class="glide__bullet" data-glide-dir="=3"></span>
+    <span class="glide__bullet" data-glide-dir="=4"></span>
+    <span class="glide__bullet" data-glide-dir="=5"></span>
+    <span class="glide__bullet" data-glide-dir="=6"></span>
+    <span class="glide__bullet" data-glide-dir="=7"></span>
+    <span class="glide__bullet" data-glide-dir="=8"></span>
+  </div>
+</div>
+
+<h2 style="text-align: center;">Static Scene Results</h2>
+<div class="glide">
+  <div class="glide__track" data-glide-el="track">
+    <ul class="glide__slides">
       <li class="glide__slide">
         <video controls muted loop autoplay>
           <source src="videos/ours_tarot_1.mov" type="video/mp4"/>
@@ -166,18 +190,30 @@ window.onload = function() {
     <span class="glide__bullet" data-glide-dir="=0"></span>
     <span class="glide__bullet" data-glide-dir="=1"></span>
     <span class="glide__bullet" data-glide-dir="=2"></span>
-    <span class="glide__bullet" data-glide-dir="=3"></span>
-    <span class="glide__bullet" data-glide-dir="=4"></span>
-    <span class="glide__bullet" data-glide-dir="=5"></span>
-    <span class="glide__bullet" data-glide-dir="=6"></span>
-    <span class="glide__bullet" data-glide-dir="=7"></span>
-    <span class="glide__bullet" data-glide-dir="=8"></span>
-    <span class="glide__bullet" data-glide-dir="=9"></span>
-    <span class="glide__bullet" data-glide-dir="=10"></span>
-    <span class="glide__bullet" data-glide-dir="=11"></span>
   </div>
 </div>
 
+<h2 style="text-align: center;">Method Performance</h2>
+<br>
+<img src="figures/performance.png" style="display: block; width: 100%; margin-left: auto; margin-right: auto;"/>
+<br>
+
+<h2>Abstract</h2>
+<p class="justify">  Volumetric scene representations enable photorealistic view synthesis for
+static scenes and form the basis of several existing 6-DoF video techniques.
+However, the volume rendering procedures that drive these representations
+necessitate careful trade-offs in terms of quality, rendering speed, and memory
+efficiency. In particular, existing methods fail to simultaneously achieve
+real-time performance, small memory footprint, and high-quality rendering for
+challenging real-world scenes. To address these issues, we present HyperReel
+--- a novel 6-DoF video representation. The two core components of HyperReel
+are: (1) a ray-conditioned sample prediction network that enables
+high-fidelity, high frame rate rendering at high resolutions and (2) a compact
+and memory efficient dynamic volume representation. Our 6-DoF video pipeline
+achieves the best performance compared to prior and contemporary approaches in
+terms of visual quality with small memory requirements, while also rendering at
+up to 18 frames-per-second at megapixel resolution without any custom CUDA
+code.</p>
 
 <h2>Overview</h2>
 <div class="justify">
@@ -267,9 +303,6 @@ window.onload = function() {
 </div>
 
 
-
-<h2>Abstract</h2>
-<p class="justify">Volumetric scene representations enable realistic view synthesis for static scenes and form the basis of several existing 6-DoF video techniques. However, the powerful volume rendering procedures that drive these representations necessitate careful trade-offs in terms of quality, rendering speed, and memory efficiency. In particular, existing methods fail to simultaneously achieve real-time performance, small memory footprint and high-quality rendering for challenging real-world scenes. To address these issues, we propose a novel 6-DoF video representation called HyperReel. The two core components of HyperReel are: (1) a ray-conditioned sampling network that enables high-fidelity high-framerate rendering at high resolutions, and (2) a compact and memory-efficient dynamic volume representation. To validate the efficacy of our approach, we show that our architecture outperforms other sampling network based approaches for static view synthesis. We further show that our full 6-DoF video pipeline achieves the best performance compared to <em>both prior and contemporary</em> approaches in terms of quality with small memory requirements, while also rendering at up to 18 frames-per-second at megapixel resolution without any custom CUDA code.</p>
 
 <h2 id="teaser-video">Teaser Video</h2>
 <div style="margin-left: auto; margin-right: auto; text-align: center;">
