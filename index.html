@@ -203,7 +203,9 @@ window.onload = function() {
 <h2>Method Performance</h2>
 -->
 
-<img src="figures/performance.png" style="display: block; width: 70%; margin: 1em auto;"/>
+<br>
+<br>
+<img src="figures/performance.png" style="display: block; width: 80%; margin: 1em auto;"/>
 <p class="center">Speed-quality trade-off of our method compared to the state of the art.</p>
 
 <h2>Abstract</h2>
@@ -220,6 +222,7 @@ Our 6-DoF video pipeline achieves the best performance compared to prior and con
 <h2>Overview</h2>
 <div class="justify">
   <p>
+    <!--
     Volumetric scene representations such as neural radiance fields [Mildenhall et al. 2020] and instant neural graphics primitives [Müller et al. 2022] have recently made
     great strides towards photorealistic view synthesis for static scenes.
 
@@ -236,6 +239,7 @@ Our 6-DoF video pipeline achieves the best performance compared to prior and con
         <li>A ray-conditioned sample prediction network that produces sparse point samples for volume rendering.</li>
         <li>A compact keyframe-based dynamic volume representation for dynamic scenes.</li>
     </ol>
+    !-->
 
     Our sample prediction network, illustrated below, is unique compared to other approaches in that it
     both <em>accelerates</em> volume rendering and <em>improves</em> rendering quality,</li>
@@ -256,10 +260,8 @@ Our 6-DoF video pipeline achieves the best performance compared to prior and con
     <br>
     <br>
 
-    Additionally, our approach can render at up to 18 FPS at megapixel resolution, demonstrated in the <a href="#demo_videos">demo videos below</a>.
-
-    In summary, HyperReel achieves a balance between high rendering quality, speed, and memory efficiency
-    that sets it apart from existing 6-DoF video representations. 
+    The combination of our sample prediction network and keyframe-based volume representation comprise HypeReel, which achieves a balance between high rendering quality, speed, and memory efficiency
+    that sets it apart from existing 6-DoF video representations.
 
   </p>
 </div>
@@ -285,7 +287,10 @@ Our 6-DoF video pipeline achieves the best performance compared to prior and con
 
 <h2 id="demo_videos">Real-Time Demos</h2>
 <div class="justify">
-<p>We show real-time demos of our approach at 512x512 pixel resolution applied to both dynamic and highly-view-dependent static scenes below.</p>
+<p>
+  We show real-time demos of our approach at 512x512 pixel resolution applied to both dynamic and highly-view-dependent static scenes below.
+  You can run our method and these real-time demos <a href="https://github.com/facebookresearch/hyperreel">using our codebase</a>.
+</p>
 </div>
 
 <!-- real-time demo carousel -->
@@ -379,6 +384,16 @@ Our 6-DoF video pipeline achieves the best performance compared to prior and con
   year   = {2023},
   note   = {arXiv:2301.XXXXX}
 }</code></pre>
+
+<h2>Acknowledgements</h2>
+
+We thank Thomas Neff, Yu-Lun Liu, and Xiaoming Zhao
+for valuable feedback and discussions, Zhaoyang Lv for
+help running the Neural 3D Video Synthesis codebase,
+and Liangchen Song for providing information about the
+scenes from the Google Immersive Video dataset used in
+NeRFPlayer. Matthew O’Toole acknowledges support
+from NSF IIS-2008464.
 
 </body>
 </html>
