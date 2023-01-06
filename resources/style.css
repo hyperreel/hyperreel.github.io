@@ -211,7 +211,7 @@ video {
   height: auto;
   margin: 0.4em;
 }
-video.fabien{
+video.fabien {
   margin-top: 10em;
   margin-bottom: 10em;
   -moz-transform:rotate(-90deg);
@@ -222,6 +222,11 @@ video.fabien{
 }
 video.on {
   display: block;
+}
+video.no-result {
+  display: inline-block;
+  max-width: none;
+  max-height: none;
 }
 img[id^="img"] {
   display: none;
@@ -380,5 +385,3 @@ em {
 .tooltip:hover .tooltiptext {
   visibility: visible;
 }
-
-

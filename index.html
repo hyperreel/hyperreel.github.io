@@ -12,7 +12,6 @@
 window.onload = function() {
   new Glide("#dynamic-carousel", {
     type: "carousel",
-    // perView: 1.4,
     perView: 1.68,
     focusAt: "center",
     autoplay: 3000,
@@ -34,12 +33,12 @@ window.onload = function() {
   }).mount();
 };
 </script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-CQVT3LMJLZ"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RZ6PES7EKD"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-CQVT3LMJLZ');
+  gtag('config', 'G-RZ6PES7EKD');
 </script>
 </head>
 <body>
@@ -82,10 +81,6 @@ window.onload = function() {
   <a href="#teaser-video"><span><img src="resources/youtube.svg" style="height: 1.2em; vertical-align: -15%;"/> Teaser Video</span></a>
   <a href="https://github.com/facebookresearch/hyperreel"><span><img src="resources/github.svg"/> Code</span></a>
 </div>
-
-<!--
-<h2>Dynamic Scene Results</h2>
--->
 
 <div class="glide" id="dynamic-carousel">
   <div class="glide__track" data-glide-el="track">
@@ -153,11 +148,7 @@ window.onload = function() {
     <span class="glide__bullet" data-glide-dir="=8"></span>
   </div>
 </div>
-<p class="center shift-to-above">Dynamic 6-DoF rendering of scenes from Google Immersive, Technicolor, and Neural 3D Video datasets.</p>
-
-<!--
-<h2>Static Scene Results</h2>
--->
+<p class="center shift-to-above">Dynamic 6-DoF rendering of scenes from <a href="https://github.com/augmentedperception/deepview_video_dataset">Google Immersive</a>, <a href="https://www.interdigital.com/data_sets/light-field-dataset">Technicolor</a>, and <a href="https://github.com/facebookresearch/Neural_3D_Video">Neural 3D Video</a> datasets.</p>
 
 <div class="glide" id="static-carousel">
   <div class="glide__track" data-glide-el="track">
@@ -195,11 +186,7 @@ window.onload = function() {
     <span class="glide__bullet" data-glide-dir="=3"></span>
   </div>
 </div>
-<p class="center shift-to-above">Static 6-DoF rendering of highly view-dependent scenes from Shiny and Stanford datasets.</p>
-
-<!--
-<h2>Method Performance</h2>
--->
+<p class="center shift-to-above">Static 6-DoF rendering of highly view-dependent scenes from <a href="https://vistec-my.sharepoint.com/:f:/g/personal/pakkapon_p_s19_vistec_ac_th/EnIUhsRVJOdNsZ_4smdhye0B8z0VlxqOR35IR3bp0uGupQ?e=TsaQgM">Shiny</a> and <a href="http://lightfield.stanford.edu/lfs.html">Stanford</a> datasets.</p>
 
 <img src="figures/performance.png" style="display: block; width: 75%; margin: 0 auto;"/>
 <p class="center shift-to-above">Speed-quality trade-off of our method compared to the state of the art.</p>
@@ -214,29 +201,9 @@ The two core components of HyperReel are:
 (2) a compact and memory-efficient dynamic volume representation. 
 Our 6-DoF video pipeline achieves the best performance compared to prior and contemporary approaches in terms of visual quality with small memory requirements, while also rendering at up to 18 frames-per-second at megapixel resolution without any custom CUDA code.</p>
 
-
 <h2>Overview</h2>
 <div class="justify">
   <p>
-    <!--
-    Volumetric scene representations such as neural radiance fields [Mildenhall et al. 2020] and instant neural graphics primitives [Müller et al. 2022] have recently made
-    great strides towards photorealistic view synthesis for static scenes.
-
-    While several recent works build dynamic view syntheisis pipelines on top of these volumetric representations,
-    it remains a challenging task to create a 6-DoF video format that can achieve high quality, fast rendering, and a small memory footprint.
-
-    <br>
-    <br>
-
-    We present <em>HyperReel</em>, a novel representation for 6-Degree-of-Freedom Video that achieves state-of-the-art quality
-    while being memory efficient and real-time renderable at high-resolution. The two core components of HyperReel are:
-
-    <ol>
-        <li>A ray-conditioned sample prediction network that produces sparse point samples for volume rendering.</li>
-        <li>A compact keyframe-based dynamic volume representation for dynamic scenes.</li>
-    </ol>
-    !-->
-
     Our sample prediction network, illustrated below, is unique compared to other approaches in that it
     both <em>accelerates</em> volume rendering and <em>improves</em> rendering quality,</li>
     especially for challenging view dependent scenes.
@@ -247,7 +214,7 @@ Our 6-DoF video pipeline achieves the best performance compared to prior and con
     <br>
     <br>
 
-    The keyframe-based volume representation that we employ is an extension of TensoRF [Chen et al. 2022].
+    The keyframe-based volume representation that we employ is an extension of <a href="https://apchenstu.github.io/TensoRF/">TensoRF [Chen et al. 2022]</a>.
     It compactly represents a full video sequence, consuming roughly the same amount of memory as a TensoRF for a <em>single static frame</em>.
 
     <br>
@@ -258,28 +225,8 @@ Our 6-DoF video pipeline achieves the best performance compared to prior and con
 
     The combination of our sample prediction network and keyframe-based volume representation comprise HypeReel, which achieves a balance between high rendering quality, speed, and memory efficiency
     that sets it apart from existing 6-DoF video representations.
-
   </p>
 </div>
-
-<!--
-<div style="text-align: center;">
-  <div class="flex" style="justify-content: space-between; align-items: center; margin-top: 2em;">
-    <img src="figures/web_teaser.svg" style="display: block; width: 65%; margin-left:"/>
-    <img src="figures/teaser_graph.svg" style="display: block; width: 34%; margin-left:"/>
-  </div>
-  <p>We present <em>Neural Light Fields with Ray-Space Embedding</em>, which map rays directly to integrated radiance.</p>
-</div>
--->
-
-<!--
-<div class="flex" style="justify-content: space-between; align-items: center; margin-top: 2em;">
-  <img src="figures/teaser_illustration.svg" style="width: 29%;"/>
-  <img src="figures/teaser_visual.svg" style="width: 40%;"/>
-  <img src="figures/teaser_graph.svg" style="width: 29%;"/>
-</div>
-<p class="justify">We present <em>Neural Light Fields with Ray-Space Embedding</em>, which map rays directly to integrated radiance (<em>left</em>). Our representation allows for high-quality view synthesis with faithful reconstruction of complex view dependence (<em>middle</em>). We are able to synthesize novel views in a fraction of the time required for the current state-of-the-art approaches, with comparable memory footprint. Our method achieves a more favorable trade-off between quality, speed, and memory than existing approaches for both dense and sparse light fields (<em>right</em>).</p>
--->
 
 <h2 id="demo_videos">Real-Time Demos</h2>
 <div class="justify">
@@ -363,20 +310,19 @@ Our 6-DoF video pipeline achieves the best performance compared to prior and con
   </div>
 </div>
 
-
 <h2 id="teaser-video">Teaser Video</h2>
-<div style="margin-left: auto; margin-right: auto; text-align: center;">
-  <video controls style="width: auto; height: auto; display: inline-block;">
+<div class="center">
+  <video controls style="width: 830px;" class="no-result">
     <source src="figures/hyperreel.mp4" type="video/mp4"/>
   </video>
 </div>
 
 <h2>BibTeX</h2>
 <pre><code>@article{attal2023hyperreel,
-  title={HyperReel: High-Fidelity 6-DoF Video with Ray-Conditioned Sampling},
-  author={Attal, Benjamin and Huang, Jia-Bin and Richardt, Christian and Zollhoefer, Michael and Kopf, Johannes and O'Toole, Matthew and Kim, Changil},
-  journal={arXiv preprint arXiv:2301.02238},
-  year={2022}
+  title   = {{HyperReel}: {H}igh-Fidelity {6-DoF} Video with Ray-Conditioned Sampling},
+  author  = {Attal, Benjamin and Huang, Jia-Bin and Richardt, Christian and Zollhoefer, Michael and Kopf, Johannes and O'Toole, Matthew and Kim, Changil},
+  journal = {arXiv preprint arXiv:2301.02238},
+  year    = {2023}
 }</code></pre>
 
 <h2>Acknowledgements</h2>
@@ -385,7 +331,7 @@ for valuable feedback and discussions, Zhaoyang Lv for
 help running the Neural 3D Video Synthesis codebase,
 and Liangchen Song for providing information about the
 scenes from the Google Immersive Video dataset used in
-NeRFPlayer. Matthew O’Toole acknowledges support
+NeRFPlayer. Matthew O'Toole acknowledges support
 from NSF IIS-2008464.</p>
 
 </body>
